@@ -5,8 +5,7 @@ mixer.init()
 pygame.init()
 pygame.font.init()#activate libraries
 background_colour = (77, 81, 87)
-# Define the dimensions of
-# screen object(width,height)
+# Define the dimensions of screen object(width,height)
 screen = pygame.display.set_mode((750, 750))
 # Set the caption of the screen
 pygame.display.set_caption('Progressbar95')
@@ -18,18 +17,17 @@ my_font = pygame.font.SysFont('Comic Sans MS', 16)
 #variables
 amt=0
 oldamt=0
-blueamt=250
 x = 250
-y = 2050
+y = 250
 oldx=0
 oldy=0
 width = 250
 height = 40
-x, y = pygame.mouse.get_pos()
+x, y = pygame.mouse.get_pos()#x and y pos of mouse to move player
 offset=250
 offset2=10
-widthoffset=20
-DrawNew = False
+widthoffset=20#offsets for bar
+DrawNew = False#used to activate drawblue() function
 
 def drawblue():#function to create new blue segment
     global xx
