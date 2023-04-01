@@ -1,9 +1,9 @@
 import pygame
 from pygame import mixer
-import random
+import random#import libraries
 mixer.init()
 pygame.init()
-pygame.font.init()
+pygame.font.init()#activate libraries
 background_colour = (77, 81, 87)
 # Define the dimensions of
 # screen object(width,height)
@@ -31,7 +31,7 @@ offset2=10
 widthoffset=20
 DrawNew = False
 
-def drawblue():
+def drawblue():#function to create new blue segment
     global xx
     global rect2
     global yy
@@ -47,8 +47,8 @@ def drawblue():
     DrawNew=False
 
 mixer.music.load('E:/Pythonprojects/Projects/Progressbar95/95.mp3')
-mixer.music.play(100)
-drawblue()
+mixer.music.play(100)#plays music
+drawblue()#make a blue when a game starts
 running = True
 while running:
     pygame.time.wait(10)#fps
@@ -62,16 +62,16 @@ while running:
     screen.blit(text_surface, (x+115,y+10))  #This takes: window/surface, color, rect 
     pygame.display.update()#updates game display
     pygame.draw.rect(screen, (77,81,87), (oldx,oldy, width, height))#coveres old rect left by player
-    x, y = pygame.mouse.get_pos()#set x,y tio mouse positio,
+    x, y = pygame.mouse.get_pos()#set x,y to mouse position
     
     oldamt=amt
     if pygame.Rect.colliderect(rect5, rect2) == True:#if player and blue collide +5 and make new blue
         pygame.draw.rect(screen, (background_colour), (xx,yy, 10, 20))
         rect4 = pygame.draw.rect(screen, (5, 103, 250), (x+10,y+6, width-247.6, height-12))
         amt=amt+5
-        offset=offset-11.6
-        offset2=offset2+11.6
-        widthoffset=widthoffset+11.6
+        offset=offset-11.6#update bar visuals
+        offset2=offset2+11.6#update bar visuals
+        widthoffset=widthoffset+11.6#update bar visuals
         DrawNew=True
         drawblue()
     else:
@@ -85,7 +85,7 @@ while running:
         pygame.draw.rect(screen, (background_colour), (xx,yy, 10, 20))
         DrawNew=True
         drawblue()
-    if pygame.Rect.colliderect(rect4, rect2) == True :
+    if pygame.Rect.colliderect(rect4, rect2) == True :#if Blue touches blue part of bar, make new blue and destroy old blue
        pygame.draw.rect(screen, (background_colour), (xx,yy, 10, 20))
        DrawNew=True
        drawblue()    
@@ -95,7 +95,7 @@ while running:
     for event in pygame.event.get():  # This will loop through a list of any keyboard or mouse events.
         if event.type == pygame.QUIT: # Checks if the red button in the corner of the window is clicked
             running = False
-pygame.quit()
+pygame.quit()#a=end the game once running=False
 
 
 
